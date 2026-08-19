@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>App Emergência</title>
+    <!-- Vincula o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-header">
+        <h1>Assistência Pessoal</h1>
+        <p>Toque no botão central em caso de emergência</p>
+    </div>
+
+    <div class="panic-button-container">
+        <div class="pulse-ring"></div>
+        <button class="panic-btn" onclick="acionarEmergencia()">S.O.S</button>
+    </div>
+
+    <div id="status" class="status-text">
+        Alerta enviado com sucesso!
+    </div>
+
+    <script>
+        function acionarEmergencia() {
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200]);
+            }
+            
+            const status = document.getElementById('status');
+            status.classList.add('show');
+            
+            setTimeout(() => {
+                alert("🚨 EMERGÊNCIA ACIONADA!\n\nSua localização GPS aproximada foi enviada para os contatos de segurança cadastrados.");
+                
+                setTimeout(() => {
+                    status.classList.remove('show');
+                }, 2000);
+
+            }, 500);
+        }
+    </script>
+</body>
+</html>

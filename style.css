@@ -1,95 +1,95 @@
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
+    background-color: #121212; /* define a cor de fundo da pagina como um cinza bem escuro quase preto */
+    color: #ffffff; /* define a cor do texto principal da pagina como branco */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* define a lista de fontes tipograficas que serao usadas no texto */
+    display: flex; /* ativa o modelo de layout flexbox para alinhar os elementos filhos facilmente */
+    flex-direction: column; /* organiza os elementos filhos em uma coluna vertical de cima para baixo */
+    justify-content: center; /* centraliza os elementos filhos verticalmente no centro do container */
+    align-items: center; /* centraliza os elementos filhos horizontalmente no centro do container */
+    height: 100vh; /* ajusta a altura do corpo para ocupar 100 porcento da altura da tela visivel */
+    margin: 0; /* remove todas as margens padrao das bordas externas do corpo da pagina */
+    overflow: hidden; /* esconde qualquer conteudo que ultrapasse os limites da tela e remove barras de rolagem */
 }
 
 .app-header {
-    position: absolute;
-    top: 60px;
-    text-align: center;
+    position: absolute; /* posiciona o cabecalho de forma absoluta em relacao ao corpo da pagina */
+    top: 60px; /* fixa o cabecalho a uma distancia de 60 pixels do topo da tela */
+    text-align: center; /* alinha todo o texto dentro do cabecalho ao centro */
 }
 
 .app-header h1 { 
-    margin: 0; 
-    font-size: 28px; 
-    color: #ff4757; 
+    margin: 0; /* remove todas as margens internas e externas padrao do titulo principal */
+    font-size: 28px; /* define o tamanho da fonte do titulo principal para 28 pixels */
+    color: #ff4757; /* define a cor do texto do titulo para um tom de vermelho vibrante */
 }
 
 .app-header p { 
-    color: #a4b0be; 
-    font-size: 15px; 
-    margin-top: 8px; 
+    color: #a4b0be; /* define a cor do texto do paragrafo para um tom de cinza claro */
+    font-size: 15px; /* define o tamanho da fonte do paragrafo para 15 pixels */
+    margin-top: 8px; /* adiciona um espacamento de 8 pixels acima do paragrafo */
 }
 
 .panic-button-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative; /* posiciona o container de forma relativa para servir de referencia aos elementos absolutos internos */
+    display: flex; /* ativa o modelo flexbox para alinhar o botao e o anel interno */
+    justify-content: center; /* centraliza os elementos filhos no eixo horizontal */
+    align-items: center; /* centraliza os elementos filhos no eixo vertical */
 }
 
 .pulse-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 220px;
-    height: 220px;
-    background-color: rgba(255, 71, 87, 0.4);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-    z-index: 0;
+    position: absolute; /* posiciona o anel de pulso de forma absoluta dentro do container pai */
+    top: 50%; /* desloca o topo do anel para 50 porcento da altura do container pai */
+    left: 50%; /* desloca a esquerda do anel para 50 porcento da largura do container pai */
+    transform: translate(-50%, -50%); /* ajusta a posicao do anel para centralizar perfeitamente o seu proprio centro */
+    width: 220px; /* define a largura inicial do anel para 220 pixels */
+    height: 220px; /* define a altura inicial do anel para 220 pixels */
+    background-color: rgba(255, 71, 87, 0.4); /* define a cor de fundo vermelha com 40 porcento de transparencia */
+    border-radius: 50%; /* transforma o elemento quadrado em um circulo perfeito */
+    animation: pulse 2s infinite; /* aplica a animacao chamada pulse com duracao de 2 segundos repetindo para sempre */
+    z-index: 0; /* posiciona o anel na camada mais baixa ao fundo para ficar atras do botao */
 }
 
 @keyframes pulse {
-    0% { width: 220px; height: 220px; opacity: 1; }
-    100% { width: 400px; height: 400px; opacity: 0; }
+    0% { width: 220px; height: 220px; opacity: 1; } /* no inicio da animacao o anel tem 220px e esta totalmente visivel */
+    100% { width: 400px; height: 400px; opacity: 0; } /* no fim da animacao o anel cresce para 400px e fica totalmente invisivel */
 }
 
 .panic-btn {
-    position: relative;
-    z-index: 1;
-    background: linear-gradient(145deg, #ff6b81, #ff4757);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 240px;
-    height: 240px;
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    cursor: pointer;
-    box-shadow: 0 20px 40px rgba(255, 71, 87, 0.5), inset 0 5px 15px rgba(255,255,255,0.3);
-    transition: all 0.15s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -webkit-tap-highlight-color: transparent;
+    position: relative; /* posiciona o botao de forma relativa para permitir o controle de camadas com z index */
+    z-index: 1; /* coloca o botao em uma camada superior para ficar a frente do anel de pulso */
+    background: linear-gradient(145deg, #ff6b81, #ff4757); /* aplica um fundo com degradê diagonal entre dois tons de vermelho */
+    color: white; /* define a cor do texto do botao como branco */
+    border: none; /* remove qualquer borda padrao do botao */
+    border-radius: 50%; /* transforma o botao retangular em um circulo perfeito */
+    width: 240px; /* define a largura do botao para 240 pixels */
+    height: 240px; /* define a altura do botao para 240 pixels */
+    font-size: 40px; /* define o tamanho da fonte do texto dentro do botao para 40 pixels */
+    font-weight: 900; /* define o peso da fonte como ultra negrito */
+    letter-spacing: 3px; /* adiciona um espacamento de 3 pixels entre cada letra do texto */
+    cursor: pointer; /* altera o ponteiro do mouse para o icone de mao ao passar por cima do botao */
+    box-shadow: 0 20px 40px rgba(255, 71, 87, 0.5), inset 0 5px 15px rgba(255,255,255,0.3); /* adiciona sombra externa vermelha e sombra interna branca para efeito 3d */
+    transition: all 0.15s ease-in-out; /* suave os efeitos de animacao de clique durante 0.15 segundos */
+    display: flex; /* ativa flexbox para centralizar o texto dentro do botao */
+    justify-content: center; /* centraliza o texto do botao horizontalmente */
+    align-items: center; /* centraliza o texto do botao verticalmente */
+    -webkit-tap-highlight-color: transparent; /* remove a cor de destaque padrao que aparece ao tocar na tela em dispositivos moveis */
 }
 
 .panic-btn:active {
-    transform: scale(0.92);
-    box-shadow: 0 10px 20px rgba(255, 71, 87, 0.5), inset 0 15px 30px rgba(0,0,0,0.3);
+    transform: scale(0.92); /* reduz o tamanho do botao para 92 porcento quando ele for pressionado */
+    box-shadow: 0 10px 20px rgba(255, 71, 87, 0.5), inset 0 15px 30px rgba(0,0,0,0.3); /* altera as sombras para dar o efeito visual de que o botao foi afundado */
 }
 
 .status-text {
-    position: absolute;
-    bottom: 80px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #2ed573;
-    opacity: 0;
-    transition: opacity 0.3s;
+    position: absolute; /* posiciona o texto de status de forma absoluta na tela */
+    bottom: 80px; /* posiciona o texto a 80 pixels de distancia do fundo da tela */
+    font-size: 18px; /* define o tamanho da fonte do texto de status para 18 pixels */
+    font-weight: bold; /* define o texto de status como negrito */
+    color: #2ed573; /* define a cor do texto de status para um tom de verde */
+    opacity: 0; /* deixa o texto totalmente transparente e invisivel por padrao */
+    transition: opacity 0.3s; /* faz a mudanca de visibilidade transicionar suavemente em 0.3 segundos */
 }
 
 .status-text.show {
-    opacity: 1;
+    opacity: 1; /* torna o texto de status totalmente visivel quando a classe show for adicionada */
 }

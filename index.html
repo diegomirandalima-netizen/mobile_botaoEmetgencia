@@ -1,47 +1,46 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>App Emergência</title>
-    <!-- Vincula o arquivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!DOCTYPE html> <!-- declara ao navegador que este documento esta utilizando a versao mais recente do html5 -->
+<html lang="pt-BR"> <!-- tag principal que envolve todo o documento definindo o idioma como portugues do brasil -->
+<head> <!-- inicio do cabecalho do documento com metadados e configuracoes nao visiveis diretamente na pagina -->
+    <meta charset="UTF-8"> <!-- define a codificacao de caracteres para utf8 garantindo suporte a simbolos e textos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <!-- ajusta a visualizacao para telas moveis definindo escala e desativando o zoom do usuario -->
+    <title>App Emergência</title> <!-- define o titulo da pagina que aparece na aba do navegador -->
+    <!-- Vincula o arquivo CSS externo --> <!-- comentario html original do codigo -->
+    <link rel="stylesheet" href="style.css"> <!-- conecta este arquivo html ao arquivo de estilos css externo chamado style css -->
+</head> <!-- fim do cabecalho do documento -->
+<body> <!-- inicio do corpo do documento onde fica todo o conteudo visivel da pagina -->
 
-    <div class="app-header">
-        <h1>Assistência Pessoal</h1>
-        <p>Toque no botão central em caso de emergência</p>
-    </div>
+    <div class="app-header"> <!-- cria uma divisao container para o cabecalho visivel do aplicativo -->
+        <h1>Assistência Pessoal</h1> <!-- cria o titulo principal visivel no topo da interface do aplicativo -->
+        <p>Toque no botão central em caso de emergência</p> <!-- exibe um texto instrucional abaixo do titulo principal -->
+    </div> <!-- fecha o container do cabecalho do aplicativo -->
 
-    <div class="panic-button-container">
-        <div class="pulse-ring"></div>
-        <button class="panic-btn" onclick="acionarEmergencia()">S.O.S</button>
-    </div>
+    <div class="panic-button-container"> <!-- cria um container para agrupar o botao de panico e seus efeitos visuais -->
+        <div class="pulse-ring"></div> <!-- elemento sem conteudo usado apenas para renderizar o efeito visual do anel pulsante -->
+        <button class="panic-btn" onclick="acionarEmergencia()">S.O.S</button> <!-- cria o botao principal de panico que executa a funcao javascript ao ser clicado -->
+    </div> <!-- fecha o container do botao de panico -->
 
-    <div id="status" class="status-text">
-        Alerta enviado com sucesso!
-    </div>
+    <div id="status" class="status-text"> <!-- cria o elemento de texto para exibir a mensagem de status com id e classe especificos -->
+        Alerta enviado com sucesso! <!-- texto da mensagem de status confirmando o envio do alerta -->
+    </div> <!-- fecha o elemento do texto de status -->
 
-    <script>
-        function acionarEmergencia() {
-            if (navigator.vibrate) {
-                navigator.vibrate([200, 100, 200]);
-            }
+    <script> <!-- inicio do bloco de codigo javascript responsavel pela interatividade da pagina -->
+        function acionarEmergencia() { /* declara a funcao principal acionarEmergencia que sera chamada no clique do botao */
+            if (navigator.vibrate) { /* verifica se o navegador do dispositivo suporta a api de vibracao */
+                navigator.vibrate([200, 100, 200]); /* aciona o padrao de vibracao do celular vibra 200ms pausa 100ms e vibra 200ms */
+            } /* fecha o bloco de verificacao do suporte a vibracao */
             
-            const status = document.getElementById('status');
-            status.classList.add('show');
+            const status = document.getElementById('status'); /* seleciona o elemento html com id status e o guarda em uma variavel */
+            status.classList.add('show'); /* adiciona a classe css show ao elemento para torna lo visivel na tela */
             
-            setTimeout(() => {
-                alert("🚨 EMERGÊNCIA ACIONADA!\n\nSua localização GPS aproximada foi enviada para os contatos de segurança cadastrados.");
+            setTimeout(() => { /* inicia um temporizador para aguardar meio segundo antes de executar as acoes internas */
+                alert("🚨 EMERGÊNCIA ACIONADA!\n\nSua localização GPS aproximada foi enviada para os contatos de segurança cadastrados."); /* exibe uma caixa de alerta na tela avisando sobre o envio do alerta e da localizacao */
                 
-                setTimeout(() => {
-                    status.classList.remove('show');
-                }, 2000);
+                setTimeout(() => { /* inicia um segundo temporizador interno para rodar apos a confirmacao do alerta */
+                    status.classList.remove('show'); /* remove a classe css show do elemento status ocultando a mensagem apos 2 segundos */
+                }, 2000); /* define o tempo de espera do segundo temporizador para 2000 milissegundos ou 2 segundos */
 
-            }, 500);
-        }
-    </script>
-</body>
-</html>
-
+            }, 500); /* define o tempo de espera do primeiro temporizador para 500 milissegundos ou meio segundo */
+        } /* fecha a definicao da funcao acionarEmergencia */
+    </script> <!-- fim do bloco de codigo javascript -->
+</body> <!-- fim do corpo do documento -->
+</html> <!-- fim do documento html -->
